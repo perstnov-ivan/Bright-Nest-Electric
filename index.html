@@ -116,29 +116,10 @@
     min-height:620px;
     display:flex; align-items:center;
   }
-  .hero-scene{
-    position:absolute; inset:0; z-index:0; overflow:hidden;
-    background:
-      radial-gradient(ellipse at 72% 38%, rgba(90,58,20,0.4), transparent 55%),
-      var(--ink);
-  }
-  .bokeh{
-    position:absolute; border-radius:50%; filter:blur(16px);
-    background:radial-gradient(circle, rgba(242,169,60,0.9), rgba(224,138,30,0.35) 55%, transparent 75%);
-    animation:bokehPulse 6s ease-in-out infinite;
-  }
-  @keyframes bokehPulse{
-    0%,100%{opacity:0.45; transform:scale(1);}
-    50%{opacity:0.8; transform:scale(1.1);}
-  }
-  .hero-pendant{
-    position:absolute; right:9%; top:6%; width:min(26vw,300px);
-    filter:drop-shadow(0 24px 44px rgba(0,0,0,0.55));
-  }
-  .hero-pendant .bulb-glow{animation:bulbGlow 3.2s ease-in-out infinite;}
-  @keyframes bulbGlow{
-    0%,100%{opacity:0.75;}
-    50%{opacity:1;}
+  .hero-bg{position:absolute; inset:0; z-index:0;}
+  .hero-bg img{
+    width:100%; height:100%; object-fit:cover; object-position:center 38%;
+    filter:brightness(0.92) saturate(1.05);
   }
   .hero-bg-overlay{
     position:absolute; inset:0; z-index:1;
@@ -266,8 +247,6 @@
   .reveal.in{opacity:1; transform:translateY(0);}
 
   @media (prefers-reduced-motion: reduce){
-    .bokeh{animation:none; opacity:0.65;}
-    .hero-pendant .bulb-glow{animation:none; opacity:0.9;}
     .reveal{opacity:1; transform:none; transition:none;}
   }
 
@@ -313,31 +292,8 @@
 </header>
 
 <section class="hero">
-  <div class="hero-scene">
-    <span class="bokeh" style="left:52%; top:10%; width:64px; height:64px; animation-delay:0s;"></span>
-    <span class="bokeh" style="left:66%; top:24%; width:40px; height:40px; animation-delay:1.2s;"></span>
-    <span class="bokeh" style="left:80%; top:14%; width:30px; height:30px; animation-delay:2.4s;"></span>
-    <span class="bokeh" style="left:58%; top:58%; width:50px; height:50px; animation-delay:.6s;"></span>
-    <span class="bokeh" style="left:88%; top:50%; width:74px; height:74px; animation-delay:1.8s;"></span>
-    <span class="bokeh" style="left:73%; top:68%; width:38px; height:38px; animation-delay:3s;"></span>
-    <svg class="hero-pendant" viewBox="0 0 200 340" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-      <defs>
-        <radialGradient id="bulbGrad" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="#FFE7B0" stop-opacity="0.95"/>
-          <stop offset="55%" stop-color="#F2A93C" stop-opacity="0.4"/>
-          <stop offset="100%" stop-color="#F2A93C" stop-opacity="0"/>
-        </radialGradient>
-      </defs>
-      <line x1="100" y1="0" x2="100" y2="68" stroke="#4A3C2C" stroke-width="3"/>
-      <rect x="82" y="64" width="36" height="22" rx="6" fill="#1E140B"/>
-      <ellipse cx="100" cy="160" rx="34" ry="76" fill="none" stroke="#E08A1E" stroke-width="2" opacity="0.8"/>
-      <line x1="66" y1="98" x2="66" y2="222" stroke="#E08A1E" stroke-width="2" opacity="0.8"/>
-      <line x1="134" y1="98" x2="134" y2="222" stroke="#E08A1E" stroke-width="2" opacity="0.8"/>
-      <ellipse cx="100" cy="96" rx="34" ry="7" fill="none" stroke="#E08A1E" stroke-width="2" opacity="0.8"/>
-      <ellipse cx="100" cy="224" rx="34" ry="7" fill="none" stroke="#E08A1E" stroke-width="2" opacity="0.8"/>
-      <circle class="bulb-glow" cx="100" cy="160" r="58" fill="url(#bulbGrad)"/>
-      <circle cx="100" cy="160" r="24" fill="#FFD98C"/>
-    </svg>
+  <div class="hero-bg">
+    <img src="assets/hero.jpg" width="1280" height="1920" alt="Modern Cincinnati-area home exterior lit up warmly at dusk, a peaceful evening scene" decoding="async" fetchpriority="high">
     <div class="hero-bg-overlay"></div>
   </div>
   <div class="wrap">
