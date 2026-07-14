@@ -113,26 +113,22 @@
   .hero{
     position:relative; overflow:hidden;
     padding:150px 0 100px;
-    min-height:920px;
+    min-height:780px;
     display:flex; align-items:center;
   }
   .hero-bg{position:absolute; inset:0; z-index:0;}
   .hero-bg img{
-    width:100%; height:100%; object-fit:cover; object-position:center 52%;
-    filter:brightness(0.92) saturate(1.05);
+    width:100%; height:100%; object-fit:cover; object-position:center 48%;
   }
   .hero-bg-overlay{
     position:absolute; inset:0; z-index:1;
     background:
-      linear-gradient(270deg, rgba(21,15,10,0.9) 0%, rgba(21,15,10,0.6) 34%, rgba(21,15,10,0.15) 64%, rgba(21,15,10,0.08) 100%),
-      radial-gradient(ellipse 640px 220px at 84% 96%, rgba(224,138,30,0.5) 0%, rgba(224,138,30,0) 70%),
-      linear-gradient(0deg, rgba(21,15,10,0.7) 0%, rgba(21,15,10,0) 22%);
+      linear-gradient(90deg, rgba(21,15,10,0.82) 0%, rgba(21,15,10,0.5) 34%, rgba(21,15,10,0.12) 64%, rgba(21,15,10,0.05) 100%),
+      radial-gradient(ellipse 640px 220px at 84% 96%, rgba(224,138,30,0.45) 0%, rgba(224,138,30,0) 70%),
+      linear-gradient(0deg, rgba(21,15,10,0.65) 0%, rgba(21,15,10,0) 22%);
   }
   .hero .wrap{position:relative; z-index:2;}
-  .hero-inner{max-width:600px; margin-left:auto; text-align:right;}
-  .hero .eyebrow{justify-content:flex-end;}
-  .hero .eyebrow::before{order:2;}
-  .hero-ctas{justify-content:flex-end;}
+  .hero-inner{max-width:600px;}
   .hero h1{
     font-size:clamp(34px,4.2vw,52px);
     line-height:1.08;
@@ -299,7 +295,7 @@
 
 <section class="hero">
   <div class="hero-bg">
-    <img src="assets/hero.jpg" width="896" height="1177" alt="Modern home lit warmly at night, with an EV charging in the open garage, a pool and fire pit in the yard" decoding="async" fetchpriority="high">
+    <img src="assets/hero.jpg" width="1536" height="1024" alt="Craftsman-style home at dusk with an EV charging in the open garage" decoding="async" fetchpriority="high">
     <div class="hero-bg-overlay"></div>
   </div>
   <div class="wrap">
