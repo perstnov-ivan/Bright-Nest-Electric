@@ -504,19 +504,23 @@
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending…';
     try{
+      const payload = Object.fromEntries(new FormData(contactForm).entries());
       const response = await fetch(contactForm.action, {
         method: 'POST',
-        body: new FormData(contactForm),
-        headers: { 'Accept': 'application/json' }
+        body: JSON.stringify(payload),
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }
       });
       if(response.ok){
         submitBtn.textContent = "Sent — we'll be in touch";
         contactForm.reset();
       } else {
+        const errText = await response.text().catch(()=> '');
+        console.error('Contact form submit failed', response.status, errText);
         submitBtn.textContent = 'Something went wrong — try again';
         submitBtn.disabled = false;
       }
     } catch(err){
+      console.error('Contact form submit error', err);
       submitBtn.textContent = 'Something went wrong — try again';
       submitBtn.disabled = false;
     }
