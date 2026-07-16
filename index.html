@@ -8,6 +8,7 @@
 <meta property="og:title" content="Bright Nest Design and Electric — Licensed Electrical Contracting, Cincinnati">
 <meta property="og:description" content="Panel upgrades, EV chargers, generators, and full rewires — planned and installed to code by a licensed Cincinnati electrical contractor.">
 <meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="assets/logo-mark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,450;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -445,10 +446,11 @@
       <p>Panel upgrade, EV charger, rewire, or something else — tell us the scope and we'll follow up to schedule a walkthrough.</p>
     </div>
     <div class="contact-form-card reveal">
-      <form id="contact-form" action="https://formsubmit.co/ajax/perstnov.ivan@gmail.com" method="POST">
+      <form id="contact-form" action="https://formsubmit.co/perstnov.ivan@gmail.com" method="POST">
         <input type="hidden" name="_subject" value="New quote request — Bright Nest Design and Electric">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" id="next-url" value="">
         <div class="field">
           <label for="name">Name</label>
           <input id="name" name="name" type="text" required>
@@ -499,13 +501,26 @@
 
   const contactForm = document.getElementById('contact-form');
   const submitBtn = contactForm.querySelector('.cta-btn');
+
+  // Return URL for the non-AJAX fallback: come back to this page with ?sent=1
+  document.getElementById('next-url').value =
+    location.origin + location.pathname + '?sent=1#contact';
+
+  // Returning from the fallback redirect — show the success state
+  if(new URLSearchParams(location.search).has('sent')){
+    submitBtn.textContent = "Sent — we'll be in touch";
+    submitBtn.disabled = true;
+  }
+
   contactForm.addEventListener('submit', async (event)=>{
     event.preventDefault();
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending…';
+    const ajaxUrl = contactForm.action.replace('formsubmit.co/', 'formsubmit.co/ajax/');
     try{
       const payload = Object.fromEntries(new FormData(contactForm).entries());
-      const response = await fetch(contactForm.action, {
+      delete payload._next;
+      const response = await fetch(ajaxUrl, {
         method: 'POST',
         body: JSON.stringify(payload),
         headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }
@@ -520,9 +535,10 @@
         submitBtn.disabled = false;
       }
     } catch(err){
-      console.error('Contact form submit error', err);
-      submitBtn.textContent = 'Something went wrong — try again';
-      submitBtn.disabled = false;
+      // fetch was blocked (extension, transport error, etc.) —
+      // fall back to a classic full-page form submission
+      console.error('Contact form fetch failed, using native submit', err);
+      contactForm.submit();
     }
   });
 </script>
