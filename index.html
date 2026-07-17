@@ -56,6 +56,15 @@
   }
   h1,h2,h3{font-family:'Fraunces',serif; font-weight:600; letter-spacing:-0.01em; color:var(--text-strong);}
 
+  /* TOPBAR */
+  .topbar{background:#0F0A06; border-bottom:1px solid var(--line); padding:9px 0;}
+  .topbar .wrap{display:flex; justify-content:flex-end;}
+  .topbar-phone{
+    font-family:'IBM Plex Mono',monospace; font-size:12.5px; letter-spacing:0.03em;
+    color:var(--copper-bright); transition:color .2s;
+  }
+  .topbar-phone:hover{color:var(--copper);}
+
   /* NAV */
   header{
     position:sticky; top:0; z-index:50;
@@ -264,9 +273,11 @@
 
   @media (max-width:980px){
     .trust .wrap{grid-template-columns:1fr; gap:28px;}
+    .trust-item{flex-direction:column; gap:8px;}
   }
 
   @media (max-width:880px){
+    .topbar .wrap{justify-content:center;}
     .navlinks a:not(.cta-btn){display:none;}
     .hero{padding:120px 0 70px; min-height:520px;}
     .hero-bg-overlay{
@@ -284,6 +295,11 @@
 </head>
 <body>
 
+<div class="topbar">
+  <div class="wrap">
+    <a href="tel:15138886655" class="topbar-phone">Call now: 513-888-6655</a>
+  </div>
+</div>
 <header>
   <nav>
     <div class="logo-block">
@@ -447,23 +463,23 @@
   <div class="wrap">
     <div class="section-head reveal">
       <div class="eyebrow">Service Area</div>
-      <h2>Proudly serving Greater Cincinnati</h2>
-      <p>Licensed electrical contracting across these communities and the surrounding area.</p>
+      <h2>Proudly serving Loveland and Greater Cincinnati</h2>
+      <p>Based in Loveland, we provide licensed electrical services throughout Mason, Deerfield Township, Indian Hill, Montgomery, Symmes Township, Madeira, Milford, Blue Ash, West Chester, Liberty Township, Lebanon, Maineville, Hyde Park, Anderson Township and surrounding communities.</p>
     </div>
     <div class="area-list reveal">
       <span>Loveland</span>
       <span>Mason</span>
+      <span>Deerfield Township</span>
       <span>Indian Hill</span>
       <span>Montgomery</span>
-      <span>Blue Ash</span>
       <span>Symmes Township</span>
       <span>Madeira</span>
+      <span>Milford</span>
+      <span>Blue Ash</span>
       <span>West Chester</span>
       <span>Liberty Township</span>
-      <span>Deerfield Township</span>
-      <span>Milford</span>
-      <span>Maineville</span>
       <span>Lebanon</span>
+      <span>Maineville</span>
       <span>Hyde Park</span>
       <span>Anderson Township</span>
     </div>
