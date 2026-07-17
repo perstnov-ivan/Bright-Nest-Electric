@@ -56,6 +56,14 @@
   }
   h1,h2,h3{font-family:'Fraunces',serif; font-weight:600; letter-spacing:-0.01em; color:var(--text-strong);}
 
+  /* TOPBAR */
+  .topbar{border-top:1px solid var(--line); padding:10px 0;}
+  .topbar .wrap{display:flex; justify-content:flex-end;}
+  .topbar-phone{
+    font-family:'IBM Plex Mono',monospace; font-size:16px; font-weight:600; letter-spacing:0.03em;
+    color:var(--copper-bright); transition:color .2s;
+  }
+  .topbar-phone:hover{color:var(--copper);}
 
   /* NAV */
   header{
@@ -144,12 +152,6 @@
     margin-bottom:30px;
   }
   .hero-ctas{display:flex; gap:14px; flex-wrap:wrap;}
-  .hero-phone{
-    display:inline-block; margin-top:24px;
-    font-family:'IBM Plex Mono',monospace; font-size:14.5px; font-weight:600; letter-spacing:0.03em;
-    color:var(--text-strong); transition:color .2s;
-  }
-  .hero-phone:hover{color:var(--copper-bright);}
 
   /* TRUST STRIP */
   .trust{
@@ -275,6 +277,7 @@
   }
 
   @media (max-width:880px){
+    .topbar .wrap{justify-content:center;}
     .navlinks a:not(.cta-btn){display:none;}
     .hero{padding:120px 0 70px; min-height:520px;}
     .hero-bg-overlay{
@@ -310,6 +313,11 @@
       <a href="#contact" class="cta-btn">Get a quote</a>
     </div>
   </nav>
+  <div class="topbar">
+    <div class="wrap">
+      <a href="tel:15138886655" class="topbar-phone">Call now: 513-888-6655</a>
+    </div>
+  </div>
 </header>
 
 <section class="hero">
@@ -326,7 +334,6 @@
         <a href="#contact" class="cta-btn">Get a quote</a>
         <a href="#services" class="cta-btn ghost">See our services</a>
       </div>
-      <a href="tel:15138886655" class="hero-phone">Call now: 513-888-6655</a>
     </div>
   </div>
 </section>
