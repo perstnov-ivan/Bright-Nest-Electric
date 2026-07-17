@@ -125,9 +125,8 @@
   .hero-bg-overlay{
     position:absolute; inset:0; z-index:1;
     background:
-      linear-gradient(90deg, rgba(21,15,10,0.82) 0%, rgba(21,15,10,0.5) 34%, rgba(21,15,10,0.12) 64%, rgba(21,15,10,0.05) 100%),
-      radial-gradient(ellipse 640px 220px at 84% 96%, rgba(224,138,30,0.45) 0%, rgba(224,138,30,0) 70%),
-      linear-gradient(0deg, rgba(21,15,10,0.65) 0%, rgba(21,15,10,0) 22%);
+      linear-gradient(90deg, rgba(21,15,10,0.76) 0%, rgba(21,15,10,0.4) 34%, rgba(21,15,10,0.06) 64%, rgba(21,15,10,0.02) 100%),
+      linear-gradient(0deg, rgba(21,15,10,0.5) 0%, rgba(21,15,10,0) 18%);
   }
   .hero .wrap{position:relative; z-index:2;}
   .hero-inner{max-width:600px;}
@@ -212,6 +211,17 @@
   .crosssell-text h3{font-size:22px; margin-bottom:10px;}
   .crosssell-text p{color:var(--slate); font-size:15px;}
 
+  /* SERVICE AREA */
+  .service-area{background:var(--section-dark); padding:96px 0;}
+  .area-list{display:flex; flex-wrap:wrap; gap:12px;}
+  .area-list span{
+    font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--slate);
+    border:1px solid var(--line); border-radius:100px;
+    padding:9px 18px;
+    transition:border-color .2s, color .2s;
+  }
+  .area-list span:hover{border-color:var(--copper); color:var(--copper);}
+
   /* CONTACT */
   .contact{background:var(--ink); padding:100px 0;}
   .contact-inner{display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start;}
@@ -261,8 +271,7 @@
     .hero{padding:120px 0 70px; min-height:520px;}
     .hero-bg-overlay{
       background:
-        radial-gradient(ellipse 260px 160px at 88% 100%, rgba(224,138,30,0.4) 0%, rgba(224,138,30,0) 70%),
-        linear-gradient(0deg, rgba(21,15,10,0.35) 0%, rgba(21,15,10,0.55) 45%, rgba(21,15,10,0.82) 100%);
+        linear-gradient(0deg, rgba(21,15,10,0.45) 0%, rgba(21,15,10,0.2) 45%, rgba(21,15,10,0.55) 100%);
     }
     .services-grid{grid-template-columns:1fr;}
     .service-card:last-child{grid-column:span 1;}
@@ -287,6 +296,7 @@
     <div class="navlinks">
       <a href="#services">Services</a>
       <a href="#process">Process</a>
+      <a href="#service-area">Service Area</a>
       <a href="#contact">Contact</a>
       <a href="#" class="pill">Interior design →</a>
       <a href="#contact" class="cta-btn">Get a quote</a>
@@ -301,7 +311,7 @@
   </div>
   <div class="wrap">
     <div class="hero-inner">
-      <div class="eyebrow">Licensed Electrical Contractor · Cincinnati, OH</div>
+      <div class="eyebrow">Licensed Electrical Contractor</div>
       <h1><em>Engineering</em> expertise. Professional electrical service.</h1>
       <p>With 15 years of electrical engineering experience, we install panel upgrades, EV chargers, generators, and complete home rewires with precision, safety, and lasting reliability.</p>
       <div class="hero-ctas">
@@ -433,6 +443,33 @@
   </div>
 </section>
 
+<section class="service-area" id="service-area">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Service Area</div>
+      <h2>Proudly serving Greater Cincinnati</h2>
+      <p>Licensed electrical contracting across these communities and the surrounding area.</p>
+    </div>
+    <div class="area-list reveal">
+      <span>Loveland</span>
+      <span>Mason</span>
+      <span>Indian Hill</span>
+      <span>Montgomery</span>
+      <span>Blue Ash</span>
+      <span>Symmes Township</span>
+      <span>Madeira</span>
+      <span>West Chester</span>
+      <span>Liberty Township</span>
+      <span>Deerfield Township</span>
+      <span>Milford</span>
+      <span>Maineville</span>
+      <span>Lebanon</span>
+      <span>Hyde Park</span>
+      <span>Anderson Township</span>
+    </div>
+  </div>
+</section>
+
 <section class="contact" id="contact">
   <div class="wrap contact-inner">
     <div class="reveal">
@@ -480,7 +517,7 @@
 
 <footer>
   <div class="wrap" style="display:flex; justify-content:space-between; width:100%; flex-wrap:wrap; gap:8px;">
-    <span>Bright Nest Design and Electric — Cincinnati, OH</span>
+    <span>Bright Nest Design and Electric</span>
     <span>© 2026 · Licensed Electrical Contractor · <a href="#">Bright Nest Interiors ↗</a></span>
   </div>
 </footer>
